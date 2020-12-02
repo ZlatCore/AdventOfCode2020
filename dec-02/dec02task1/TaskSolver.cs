@@ -7,19 +7,16 @@ namespace dec02task1
 {
     public class TaskSolver
     {
-
-        List<string> input;
-        List<PasswordData> convertedInput;
+         List<PasswordData> convertedInput;
 
         public TaskSolver(List<string> input)
         {
-            this.input = input;
-            this.convertedInput = this.input.Select(x => new PasswordData(x)).ToList();
+            this.convertedInput = input.Select(x => new PasswordData(x)).ToList();
         }
 
-        public int GetValidPasswordsNumber()
+        public (int, int) GetValidPasswordsNumber()
         {
-            return this.convertedInput.Count(x => x.IsValid);
+            return (this.convertedInput.Count(x => x.IsValidOld), this.convertedInput.Count(x => x.IsValidNew));
         }
     }
 }

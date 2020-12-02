@@ -11,11 +11,11 @@ namespace dec02task1
         public char RequiredChar { get; private set; }
         public string Password { get; private set; }
 
-        public bool IsValid { get; private set; }
+        public bool IsValidOld { get; private set; }
+        public bool IsValidNew { get; private set; }
 
         public PasswordData(string dataString)
         {
-            // 1-3 a: abcde
             var tmp = dataString.Split(" ");
             this.Password = tmp[2];
             this.RequiredChar = tmp[1][0];
@@ -32,7 +32,8 @@ namespace dec02task1
                 }
             }
 
-            this.IsValid = tmpCount >= this.LowerLimit && tmpCount <= this.UpperLimit;
+            this.IsValidOld = tmpCount >= this.LowerLimit && tmpCount <= this.UpperLimit;
+            this.IsValidNew = (this.Password[this.LowerLimit - 1] == this.RequiredChar) != (this.Password[this.UpperLimit - 1] == this.RequiredChar);
         }
     }
 }

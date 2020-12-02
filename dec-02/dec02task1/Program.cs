@@ -8,9 +8,9 @@ namespace dec02task1
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            int result = 0;
+
             TaskSolver ts = new TaskSolver(GetInput());
-            result = ts.GetValidPasswordsNumber();
+            var result = ts.GetValidPasswordsNumber();
 
             Console.WriteLine($"Result is {result}");
         }
@@ -19,7 +19,7 @@ namespace dec02task1
 
         static List<string> GetInput()
         {
-           // return new List<string>() { "1-3 a: abcde", "1-3 b: cdefg", "2-9 c: ccccccccc" };
+            // return new List<string>() { "1-3 a: abcde", "1-3 b: cdefg", "2-9 c: ccccccccc" };
 
             return new List<string>()
             {
